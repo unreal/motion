@@ -27,4 +27,25 @@ class TestMotion < Test::Unit::TestCase
     assert_equal 30.0, lerped_position.r
 
   end
+
+  def test_sq
+    assert_equal 4.0, Motion.sq(2)
+    assert_equal 1.0, Motion.sq(-1)
+  end
+
+  def test_distance
+    s = Motion::Position.new
+    e = Motion::Position.new(
+      x: 10.0,
+      y: 10.0,
+      z: 10.0
+    )
+
+    assert_equal 17.321, Motion.distance(s,e).round(3)
+  end
+
+  def test_radians
+    assert_equal Math::PI, Motion.radians(180)
+    assert_equal 0.0, Motion.radians(0)
+  end
 end
