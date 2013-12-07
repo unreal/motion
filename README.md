@@ -1,6 +1,6 @@
 # Motion
 
-TODO: Write a gem description
+Motion utilities.
 
 ## Installation
 
