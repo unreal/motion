@@ -1,4 +1,4 @@
-require "motion/position"
+require "motion/cartesian_position"
 require "motion/version"
 
 module Motion
@@ -10,9 +10,9 @@ module Motion
       start.to_f + (stop.to_f-start.to_f) * amount.to_f
     end
 
-    # Linear interpolate between two positions at a specific increment
-    def position_lerp(start_position, end_position, amount)
-      p = Position.copy(start_position)
+    # Linear interpolate between two cartesian positions at a specific increment
+    def cposition_lerp(start_position, end_position, amount)
+      p = CartesianPosition.copy(start_position)
       p.x = lerp(start_position.x, end_position.x, amount)
       p.y = lerp(start_position.y, end_position.y, amount)
       p.z = lerp(start_position.z, end_position.z, amount)

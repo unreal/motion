@@ -1,5 +1,5 @@
 module Motion
-  class Position
+  class CartesianPosition
 
     attr_accessor :x,:y,:z,:w,:p,:r
 
@@ -22,7 +22,7 @@ W: #{w} P: #{p} R: #{r})
     end
 
     def self.copy(original)
-      Position.new(
+      new(
         x: original.x,
         y: original.y,
         z: original.z,

@@ -8,8 +8,8 @@ class TestMotion < Test::Unit::TestCase
   end
 
   def test_position_lerp
-    start_position = Motion::Position.new
-    end_position = Motion::Position.new(
+    start_position = Motion::CartesianPosition.new
+    end_position = Motion::CartesianPosition.new(
       x: 10.0,
       y: 20.0,
       z: 30.0,
@@ -18,7 +18,7 @@ class TestMotion < Test::Unit::TestCase
       r: 60.0
     )
 
-    lerped_position = Motion.position_lerp(start_position, end_position, 0.5)
+    lerped_position = Motion.cposition_lerp(start_position, end_position, 0.5)
     assert_equal 5.0, lerped_position.x
     assert_equal 10.0, lerped_position.y
     assert_equal 15.0, lerped_position.z
@@ -33,8 +33,8 @@ class TestMotion < Test::Unit::TestCase
   end
 
   def test_distance
-    s = Motion::Position.new
-    e = Motion::Position.new(
+    s = Motion::CartesianPosition.new
+    e = Motion::CartesianPosition.new(
       x: 10.0,
       y: 10.0,
       z: 10.0
