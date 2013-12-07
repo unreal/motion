@@ -1,4 +1,5 @@
 require "motion/cartesian_position"
+require "motion/joint_position"
 require "motion/version"
 
 module Motion
@@ -19,6 +20,16 @@ module Motion
       p.w = lerp(start_position.w, end_position.w, amount)
       p.p = lerp(start_position.p, end_position.p, amount)
       p.r = lerp(start_position.r, end_position.r, amount)
+      p
+    end
+
+    # Linear interpolate between two joint positions at a specific
+    # increment
+    def jposition_lerp(s, e, amount)
+      p = JointPosition.copy(s)
+      p.axes.each_index do |i|
+        p.set_axis(i+1, lerp(s.axes[i], e.axes[i], amount))
+      end
       p
     end
 

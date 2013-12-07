@@ -27,6 +27,24 @@ class TestMotion < Test::Unit::TestCase
     assert_equal 30.0, lerped_position.r
   end
 
+  def test_jposition_lerp
+    s = Motion::JointPosition.new(6)
+    e = Motion::JointPosition.new(6)
+    e.set_axis(1,10)
+    e.set_axis(2,20)
+    e.set_axis(3,30)
+    e.set_axis(4,40)
+    e.set_axis(5,50)
+    e.set_axis(6,60)
+    p = Motion.jposition_lerp(s,e,0.5)
+    assert_equal 5.0, p.axis(1)
+    assert_equal 10.0, p.axis(2)
+    assert_equal 15.0, p.axis(3)
+    assert_equal 20.0, p.axis(4)
+    assert_equal 25.0, p.axis(5)
+    assert_equal 30.0, p.axis(6)
+  end
+
   def test_sq
     assert_equal 4.0, Motion.sq(2)
     assert_equal 1.0, Motion.sq(-1)
