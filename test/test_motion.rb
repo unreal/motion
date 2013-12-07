@@ -25,7 +25,6 @@ class TestMotion < Test::Unit::TestCase
     assert_equal 20.0, lerped_position.w
     assert_equal 25.0, lerped_position.p
     assert_equal 30.0, lerped_position.r
-
   end
 
   def test_sq
