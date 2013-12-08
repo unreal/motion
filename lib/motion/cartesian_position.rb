@@ -17,8 +17,8 @@ module Motion
     end
 
     def to_s
-      %(X: #{x} Y: #{y} Z: #{z}
-W: #{w} P: #{p} R: #{r})
+      %(X = #{("%0.03f" % x.round(3)).rjust(9)}  mm,  Y = #{("%0.03f" % y.round(3)).rjust(9)}  mm,  Z = #{("%0.03f" % z.round(3)).rjust(9)}  mm,
+W = #{("%0.03f" % w.round(3)).rjust(9)} deg,  P = #{("%0.03f" % p.round(3)).rjust(9)} deg,  R = #{("%0.03f" % r.round(3)).rjust(9)} deg)
     end
 
     def self.copy(original)
